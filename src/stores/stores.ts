@@ -11,3 +11,8 @@ export const completedTasks = atom<TodoList>({
   key: 'completedTasks',
   default: [''],
 })
+
+export const errorMessageState = atom<boolean>({
+  key: 'errorMessageState',
+  default: false,
+})

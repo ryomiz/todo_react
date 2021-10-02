@@ -1,9 +1,10 @@
 import { VFC } from 'react'
 import { RecoilRoot } from 'recoil'
+
+import { CompletedTasksList } from './components/CompletedTasksList'
 import { Headline } from './components/Headline'
 import { TodoForm } from './components/TodoForm'
 import { UncompletedTasksList } from './components/UncompletedTasksList'
-import { CompletedTasksList } from './components/CompletedTasksList'
 
 export const App: VFC = () => {
   return (
