@@ -10,6 +10,21 @@ export const TodoForm: VFC = () => {
   const { addTodo } = useCreateTodo(value, setValue)
   const { showError } = useShowEerrorMessage(value)
 
+  let errorMessage
+  switch (showError) {
+    case 'noInput':
+      errorMessage = 'タスクを入力してください！'
+      break
+    case 'duplicated':
+      errorMessage = '既に登録されたタスクです！'
+      break
+    case 'none':
+      errorMessage = ''
+      break
+    default:
+      break
+  }
+
   return (
     <div className="p-6 mb-8 flex flex-col rounded shadow">
       <div className=" flex gap-4">
@@ -30,9 +45,7 @@ export const TodoForm: VFC = () => {
         />
       </div>
       {showError && (
-        <p className="mt-2 ml-4 text-xs text-red-700">
-          タスクを入力してください！
-        </p>
+        <p className="mt-2 ml-4 text-xs text-red-700">{errorMessage}</p>
       )}
     </div>
   )

@@ -4,8 +4,8 @@ import { SetterOrUpdater, useRecoilState } from 'recoil'
 import { errorMessageState } from 'src/stores/stores'
 
 type ReturnValue = {
-  showError: boolean
-  setShowError: SetterOrUpdater<boolean>
+  showError: 'none' | 'noInput' | 'duplicated'
+  setShowError: SetterOrUpdater<'none' | 'noInput' | 'duplicated'>
 }
 
 export const useShowEerrorMessage = (value?: string): ReturnValue => {
@@ -13,7 +13,7 @@ export const useShowEerrorMessage = (value?: string): ReturnValue => {
 
   // 値に入力があったらされたらエラーメッセージを削除
   useEffect(() => {
-    setShowError(false)
+    setShowError('none')
   }, [value])
 
   return { showError, setShowError }

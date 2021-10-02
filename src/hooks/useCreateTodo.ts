@@ -16,8 +16,15 @@ export const useCreateTodo = (
   const [todo, setTodo] = useRecoilState(uncompletedTasks)
   const { setShowError } = useShowEerrorMessage()
   const addTodo = (): void => {
+    // 入力値がない場合
     if (!value) {
-      setShowError(true)
+      setShowError('noInput')
+      return
+    }
+    // 既に登録されている場合
+    if (todo.includes(value)) {
+      setShowError('duplicated')
+      return
     }
     const newTodo = [...todo, value]
     setTodo(newTodo)

@@ -12,7 +12,7 @@ export const completedTasks = atom<TodoList>({
   default: [''],
 })
 
-export const errorMessageState = atom<boolean>({
+export const errorMessageState = atom<'none' | 'noInput' | 'duplicated'>({
   key: 'errorMessageState',
-  default: false,
+  default: 'noInput',
 })
