@@ -1,1 +1,1 @@
-export type Foo = any
+export type TodoList = Array<string>
