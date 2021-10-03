@@ -1,4 +1,4 @@
-import { VFC } from 'react'
+import { memo, VFC } from 'react'
 import { useRecoilValue } from 'recoil'
 
 import type { UseFormRegister } from 'react-hook-form'
@@ -10,7 +10,7 @@ type Props = {
   register: UseFormRegister<InputValue>
 }
 
-export const Input: VFC<Props> = (props) => {
+export const Input: VFC<Props> = memo((props) => {
   const { register } = props
   const uncompleted = useRecoilValue(uncompletedTasks)
   const completed = useRecoilValue(completedTasks)
@@ -31,4 +31,4 @@ export const Input: VFC<Props> = (props) => {
       />
     </>
   )
-}
+})

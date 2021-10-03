@@ -1,4 +1,4 @@
-import { VFC } from 'react'
+import { memo, VFC } from 'react'
 import { SubmitHandler, useForm } from 'react-hook-form'
 
 import { ErrorMessage } from './ErrorMessage'
@@ -8,7 +8,7 @@ import type { InputValue } from 'src/types'
 
 import { useTask } from 'src/hooks/useTask'
 
-export const TodoForm: VFC = () => {
+export const TodoForm: VFC = memo(() => {
   const { createTask } = useTask()
 
   const {
@@ -41,4 +41,4 @@ export const TodoForm: VFC = () => {
       {errors.todo && <ErrorMessage errorType={errors.todo.type} />}
     </form>
   )
-}
+})

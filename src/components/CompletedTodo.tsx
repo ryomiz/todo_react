@@ -1,4 +1,4 @@
-import { VFC } from 'react'
+import { memo, VFC } from 'react'
 
 import { useTask } from 'src/hooks/useTask'
 
@@ -6,7 +6,7 @@ type Props = {
   todo: string
 }
 
-export const CompletedTodo: VFC<Props> = (props) => {
+export const CompletedTodo: VFC<Props> = memo((props) => {
   const { todo } = props
   const { revertTask, deleteTask } = useTask()
   return (
@@ -30,4 +30,4 @@ export const CompletedTodo: VFC<Props> = (props) => {
       </div>
     </div>
   )
-}
+})

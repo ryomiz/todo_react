@@ -1,10 +1,10 @@
-import { VFC } from 'react'
+import { memo, VFC } from 'react'
 import { useRecoilValue } from 'recoil'
 
 import { UncompletedTodo } from 'src/components/UncompletedTodo'
 import { uncompletedTasks } from 'src/stores/stores'
 
-export const UncompletedTasksList: VFC = () => {
+export const UncompletedTasksList: VFC = memo(() => {
   const todo = useRecoilValue(uncompletedTasks)
 
   return (
@@ -15,4 +15,4 @@ export const UncompletedTasksList: VFC = () => {
       </div>
     </div>
   )
-}
+})

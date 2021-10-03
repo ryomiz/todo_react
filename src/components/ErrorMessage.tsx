@@ -1,10 +1,10 @@
-import { VFC } from 'react'
+import { memo, VFC } from 'react'
 
 type Props = {
   errorType: string
 }
 
-export const ErrorMessage: VFC<Props> = (props) => {
+export const ErrorMessage: VFC<Props> = memo((props) => {
   const { errorType } = props
   let errorMessage = ''
   switch (errorType) {
@@ -22,4 +22,4 @@ export const ErrorMessage: VFC<Props> = (props) => {
   }
 
   return <p className="mt-2 ml-4 text-xs text-red-700">{errorMessage}</p>
-}
+})
