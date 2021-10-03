@@ -4,12 +4,12 @@ import type { TodoList } from 'src/types'
 
 export const uncompletedTasks = atom<TodoList>({
   key: 'uncompletedTasks',
-  default: [''],
+  default: [],
 })
 
 export const completedTasks = atom<TodoList>({
   key: 'completedTasks',
-  default: [''],
+  default: [],
 })
 
 export const errorMessageState = atom<'none' | 'noInput' | 'duplicated'>({
