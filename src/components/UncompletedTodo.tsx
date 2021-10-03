@@ -1,6 +1,6 @@
 import { VFC } from 'react'
 
-import { useCompleteTask } from 'src/hooks/useCompleteTask'
+import { useTask } from 'src/hooks/useTask'
 
 type Props = {
   todo: string
@@ -8,7 +8,7 @@ type Props = {
 
 export const UncompletedTodo: VFC<Props> = (props) => {
   const { todo } = props
-  const { completeTask } = useCompleteTask()
+  const { completeTask } = useTask()
   return (
     <div className="flex items-center justify-between p-4 bg-blue-100 rounded">
       <span className="text-xl">{todo}</span>

@@ -1,7 +1,6 @@
 import { VFC } from 'react'
 
-import { useDeleteTask } from 'src/hooks/useDeleteTask'
-import { useRevertTask } from 'src/hooks/useRevertTask'
+import { useTask } from 'src/hooks/useTask'
 
 type Props = {
   todo: string
@@ -9,10 +8,7 @@ type Props = {
 
 export const CompletedTodo: VFC<Props> = (props) => {
   const { todo } = props
-
-  const { revertTask } = useRevertTask()
-  const { deleteTask } = useDeleteTask()
-
+  const { revertTask, deleteTask } = useTask()
   return (
     <div className="flex items-center justify-between p-4 bg-red-100 rounded">
       <span className="text-xl">{todo}</span>
