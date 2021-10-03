@@ -19,14 +19,14 @@ export const CompletedTodo: VFC<Props> = (props) => {
       <div className="flex gap-1">
         <button
           type="button"
-          className="bg-red-400 text-white px-4 py-1 rounded"
+          className="bg-red-400 text-white px-4 py-1 rounded hover:bg-red-600"
           onClick={(): void => revertTask(todo)}
         >
           戻す
         </button>
         <button
           type="button"
-          className="bg-red-700 text-white px-4 py-1 rounded"
+          className="bg-red-700 text-white px-4 py-1 rounded hover:bg-red-900"
           onClick={(): void => deleteTask(todo)}
         >
           削除

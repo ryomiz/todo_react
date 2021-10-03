@@ -14,7 +14,7 @@ export const UncompletedTodo: VFC<Props> = (props) => {
       <span className="text-xl">{todo}</span>
       <button
         type="button"
-        className="bg-blue-400 text-white px-4 py-1 rounded"
+        className="bg-blue-400 text-white px-4 py-1 rounded hover:bg-blue-600"
         onClick={(): void => completeTask(todo)}
       >
         完了
