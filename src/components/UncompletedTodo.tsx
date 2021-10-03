@@ -1,24 +1,14 @@
 import { VFC } from 'react'
-import { useRecoilState } from 'recoil'
 
-import { completedTasks, uncompletedTasks } from 'src/stores/stores'
+import { useCompleteTask } from 'src/hooks/useCompleteTask'
 
 type Props = {
   todo: string
 }
 
 export const UncompletedTodo: VFC<Props> = (props) => {
-  const [uncompleted, setUncompleted] = useRecoilState(uncompletedTasks)
-  const [completed, setCompleted] = useRecoilState(completedTasks)
-
-  const completeTask = (todo: string): void => {
-    const newUncompleted = uncompleted.filter((td) => td !== todo)
-    const newCompleted = [...completed, todo]
-    setUncompleted(newUncompleted)
-    setCompleted(newCompleted)
-  }
-
   const { todo } = props
+  const { completeTask } = useCompleteTask()
   return (
     <div className="flex items-center justify-between p-4 bg-blue-100 rounded">
       <span className="text-xl">{todo}</span>
