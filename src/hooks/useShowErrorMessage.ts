@@ -12,7 +12,7 @@ type ReturnValue = {
 export const useShowErrorMessage = (value?: string): ReturnValue => {
   const [showError, setShowError] = useRecoilState(errorMessageState)
 
-  // 値に入力があったらされたらエラーメッセージを削除
+  // フォームに入力があったらされたらエラーメッセージを削除
   useEffect(() => {
     setShowError('none')
   }, [value])
