@@ -2,7 +2,7 @@ import { useRecoilState, useRecoilValue } from 'recoil'
 
 import type { Dispatch, SetStateAction } from 'react'
 
-import { useShowEerrorMessage } from 'src/hooks/useShowEerrorMessage'
+import { useShowErrorMessage } from 'src/hooks/useShowErrorMessage'
 import { completedTasks, uncompletedTasks } from 'src/stores/stores'
 
 type ReturnValue = {
@@ -15,7 +15,7 @@ export const useCreateTodo = (
 ): ReturnValue => {
   const [uncompleted, setUncompeleted] = useRecoilState(uncompletedTasks)
   const completed = useRecoilValue(completedTasks)
-  const { setShowError } = useShowEerrorMessage()
+  const { setShowError } = useShowErrorMessage()
   const addTodo = (): void => {
     // 入力値がない場合
     if (!value) {

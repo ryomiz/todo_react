@@ -9,7 +9,7 @@ type ReturnValue = {
   setShowError: SetterOrUpdater<ErrorState>
 }
 
-export const useShowEerrorMessage = (value?: string): ReturnValue => {
+export const useShowErrorMessage = (value?: string): ReturnValue => {
   const [showError, setShowError] = useRecoilState(errorMessageState)
 
   // 値に入力があったらされたらエラーメッセージを削除

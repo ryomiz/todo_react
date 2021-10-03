@@ -3,12 +3,12 @@ import { useState, VFC } from 'react'
 import type { ChangeEvent } from 'react'
 
 import { useCreateTodo } from 'src/hooks/useCreateTodo'
-import { useShowEerrorMessage } from 'src/hooks/useShowEerrorMessage'
+import { useShowErrorMessage } from 'src/hooks/useShowErrorMessage'
 
 export const TodoForm: VFC = () => {
   const [value, setValue] = useState<string>('')
   const { addTodo } = useCreateTodo(value, setValue)
-  const { showError } = useShowEerrorMessage(value)
+  const { showError } = useShowErrorMessage(value)
 
   let errorMessage
   switch (showError) {
