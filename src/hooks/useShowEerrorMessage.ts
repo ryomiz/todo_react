@@ -2,10 +2,11 @@ import { useEffect } from 'react'
 import { SetterOrUpdater, useRecoilState } from 'recoil'
 
 import { errorMessageState } from 'src/stores/stores'
+import { ErrorState } from 'src/types'
 
 type ReturnValue = {
-  showError: 'none' | 'noInput' | 'duplicated'
-  setShowError: SetterOrUpdater<'none' | 'noInput' | 'duplicated'>
+  showError: ErrorState
+  setShowError: SetterOrUpdater<ErrorState>
 }
 
 export const useShowEerrorMessage = (value?: string): ReturnValue => {

@@ -1,9 +1,9 @@
-import { useRecoilState } from 'recoil'
+import { useRecoilState, useRecoilValue } from 'recoil'
 
 import type { Dispatch, SetStateAction } from 'react'
 
 import { useShowEerrorMessage } from 'src/hooks/useShowEerrorMessage'
-import { uncompletedTasks } from 'src/stores/stores'
+import { completedTasks, uncompletedTasks } from 'src/stores/stores'
 
 type ReturnValue = {
   addTodo: () => void
@@ -13,7 +13,8 @@ export const useCreateTodo = (
   value: string,
   setValue: Dispatch<SetStateAction<string>>
 ): ReturnValue => {
-  const [todo, setTodo] = useRecoilState(uncompletedTasks)
+  const [uncompleted, setUncompeleted] = useRecoilState(uncompletedTasks)
+  const completed = useRecoilValue(completedTasks)
   const { setShowError } = useShowEerrorMessage()
   const addTodo = (): void => {
     // 入力値がない場合
@@ -22,12 +23,17 @@ export const useCreateTodo = (
       return
     }
     // 既に登録されている場合
-    if (todo.includes(value)) {
+    if (uncompleted.includes(value)) {
       setShowError('duplicated')
       return
     }
-    const newTodo = [...todo, value]
-    setTodo(newTodo)
+    // 既に完了している場合
+    if (completed.includes(value)) {
+      setShowError('completed')
+      return
+    }
+    const newTodo = [...uncompleted, value]
+    setUncompeleted(newTodo)
     setValue('')
   }
 

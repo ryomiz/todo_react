@@ -18,6 +18,9 @@ export const TodoForm: VFC = () => {
     case 'duplicated':
       errorMessage = '既に登録されたタスクです！'
       break
+    case 'completed':
+      errorMessage = '既に完了したタスクです！'
+      break
     case 'none':
       errorMessage = ''
       break

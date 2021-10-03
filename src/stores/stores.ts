@@ -1,6 +1,6 @@
 import { atom } from 'recoil'
 
-import type { TodoList } from 'src/types'
+import type { ErrorState, TodoList } from 'src/types'
 
 export const uncompletedTasks = atom<TodoList>({
   key: 'uncompletedTasks',
@@ -12,7 +12,7 @@ export const completedTasks = atom<TodoList>({
   default: [],
 })
 
-export const errorMessageState = atom<'none' | 'noInput' | 'duplicated'>({
+export const errorMessageState = atom<ErrorState>({
   key: 'errorMessageState',
   default: 'noInput',
 })
